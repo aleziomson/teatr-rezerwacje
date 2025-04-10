@@ -1,0 +1,39 @@
+.spektakle-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .spektakle-group {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+  }
+  
+  .spektakle-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .spektakle-time,
+  .spektakle-title,
+  .spektakle-location {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .btn-ticket {
+    background-color: #f4d03f;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .btn-ticket:hover {
+    background-color: #f1c40f;
+  }
+  

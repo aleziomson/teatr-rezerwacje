@@ -1,0 +1,40 @@
+.repertuar-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .repertuar-group {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+  }
+  
+  .repertuar-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+  }
+  
+  .repertuar-time {
+    width: 60px;
+    font-weight: bold;
+  }
+  
+  .repertuar-title {
+    flex-grow: 1;
+  }
+  
+  .repertuar-location {
+    color: #555;
+  }
+  
+  .btn-ticket {
+    background-color: #d4af37;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
