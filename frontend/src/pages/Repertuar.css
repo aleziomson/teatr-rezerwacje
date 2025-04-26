@@ -1,40 +1,355 @@
+/* Repertuar.css */
+
+
+
+/* Główny kontener */
 .repertuar-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Roboto', 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Sekcja nagłówka */
+.repertuar-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.repertuar-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+.accent-text {
+  color: #e53e3e;
+}
+
+.repertuar-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Lista spektakli */
+.spektakle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Pojedynczy spektakl */
+.spektakl-item {
+  display: flex;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* .spektakl-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+} */
+
+/* Kontener obrazu */
+.spektakl-image-container {
+  flex: 0 0 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.spektakl-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* .spektakl-item:hover .spektakl-image {
+  transform: scale(1.05);
+} */
+
+.spektakl-age-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(26, 26, 26, 0.85);
+  color: white;
+  font-weight: 600;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Zawartość informacji o spektaklu */
+.spektakl-content {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.spektakl-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: #1a1a1a;
+}
+
+/* Podstawowe informacje o spektaklu */
+.spektakl-info {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+}
+
+.duration-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23555" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.director-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23555" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Opis spektaklu */
+.spektakl-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Obsada */
+.spektakl-cast {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.cast-label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.cast-names {
+  font-style: italic;
+}
+
+/* Przyciski akcji */
+.spektakl-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.details-button {
+  background-color: #f8f8f8;
+  color: #333;
+  border: 1px solid #e0e0e0;
+}
+
+.details-button:hover {
+  background-color: #eee;
+  transform: translateY(-2px);
+}
+
+.buy-ticket-button {
+  background-color: #e53e3e;
+  color: white;
+  box-shadow: 0 2px 4px rgba(229, 62, 62, 0.3);
+}
+
+.buy-ticket-button:hover {
+  background-color: #c53030;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(229, 62, 62, 0.4);
+}
+
+.details-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23333" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.ticket-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M22 10V6c0-1.11-.9-2-2-2H4c-1.1 0-1.99.89-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2s.9-2 2-2zm-2-1.46l-3 2.96-2.99-3L7.95 11.5 5.5 9l-2.5 3V6h17v3.54z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Stan ładowania */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(229, 62, 62, 0.3);
+  border-radius: 50%;
+  border-top-color: #e53e3e;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .repertuar-group {
-    margin-bottom: 30px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 15px;
+}
+
+/* Stan braku spektakli */
+.no-repertuar {
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.no-repertuar-icon {
+  height: 60px;
+  width: 60px;
+  margin: 0 auto 1.5rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23999" viewBox="0 0 24 24"><path d="M13.95 22H13v-2h.95c3.33 0 5.05-1.82 5.05-5.45V9.48c0-3.63-1.72-5.45-5.05-5.45H4.05C.72 4.03 0 5.85 0 9.48v5.07c0 3.63.72 5.45 4.05 5.45H5v2h-.95C1.05 22 0 19.46 0 14.55V9.48C0 4.54 1.05 2 4.05 2h9.9C16.95 2 18 4.54 18 9.48v5.07c0 4.9-1.05 7.45-4.05 7.45z M12 5H2v14h10V5zm-4.95 12h-2v-2h2v2zm.05-4h-2v-6h2v6z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.7;
+}
+
+.no-repertuar p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+/* Stan błędu */
+.error-message {
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: #fff5f5;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.error-message p {
+  font-size: 1.2rem;
+  color: #e53e3e;
+  margin-bottom: 1.5rem;
+}
+
+.retry-button {
+  display: inline-block;
+  background-color: #e53e3e;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(229, 62, 62, 0.3);
+}
+
+.retry-button:hover {
+  background-color: #c53030;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(229, 62, 62, 0.4);
+}
+
+/* Style responsywne */
+@media (max-width: 900px) {
+  .spektakl-item {
+    flex-direction: column;
   }
-  
-  .repertuar-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 10px 0;
+
+  .spektakl-image-container {
+    flex: 0 0 auto;
+    height: 250px;
   }
-  
-  .repertuar-time {
-    width: 60px;
-    font-weight: bold;
+
+  .spektakl-content {
+    padding: 1.5rem;
   }
-  
-  .repertuar-title {
-    flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  .repertuar-header h1 {
+    font-size: 2rem;
   }
-  
-  .repertuar-location {
-    color: #555;
+
+  .spektakl-title {
+    font-size: 1.5rem;
   }
-  
-  .btn-ticket {
-    background-color: #d4af37;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
+
+  .spektakl-info {
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .spektakl-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .action-button {
+    width: 100%;
+  }
+}

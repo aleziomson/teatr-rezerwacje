@@ -1,4 +1,214 @@
-.spektakle-container {
+/* Spektakle.css */
+/* Main container styles */
+.repertuar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Roboto', 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Header section */
+.repertuar-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.repertuar-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+.repertuar-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Date section styling */
+.date-section {
+  margin-bottom: 3rem;
+}
+
+.date-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.date-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-right: 1rem;
+  color: #e53e3e;
+  white-space: nowrap;
+}
+
+.date-line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #e0e0e0;
+}
+
+/* Grid layout for performances */
+.spektakle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual performance card */
+.spektakl-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+}
+
+.spektakl-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Performance image */
+.spektakl-image {
+  height: 200px;
+  position: relative;
+  background-size: cover;
+  /* background-position: center; */
+}
+
+/* Time badge on image */
+.spektakl-time-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(26, 26, 26, 0.85);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+}
+
+.spektakl-time {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Details section */
+.spektakl-details {
+  padding: 1.5rem;
+}
+
+.spektakl-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  color: #1a1a1a;
+}
+
+.spektakl-location {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.location-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23666" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Buy ticket button */
+.buy-ticket-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(229, 62, 62, 0.3);
+}
+
+.buy-ticket-button:hover {
+  background-color: #c53030;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(229, 62, 62, 0.4);
+}
+
+.ticket-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M22 10V6c0-1.11-.9-2-2-2H4c-1.1 0-1.99.89-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2s.9-2 2-2zm-2-1.46l-3 2.96-2.99-3L7.95 11.5 5.5 9l-2.5 3V6h17v3.54z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Loading spinner */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(229, 62, 62, 0.3);
+  border-radius: 50%;
+  border-top-color: #e53e3e;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .spektakle-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .spektakle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .repertuar-header h1 {
+    font-size: 2rem;
+  }
+
+  .date-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* .spektakle-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -36,4 +246,4 @@
   .btn-ticket:hover {
     background-color: #f1c40f;
   }
-  
+   */

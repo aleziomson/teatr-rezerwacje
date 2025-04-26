@@ -37,3 +37,13 @@
     transform: rotate(360deg);
   }
 }
+
+/* W globalnym CSS */
+:root {
+  --base-font-size: 16px;
+  /* domyślna wartość */
+}
+
+html {
+  font-size: var(--base-font-size);
+}

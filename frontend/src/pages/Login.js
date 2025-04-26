@@ -26,6 +26,7 @@ function Login() {
             const data = await response.text();
 
             if (response.ok) {
+                // Token JWT
                 login(data);
                 navigate("/");
             } else {

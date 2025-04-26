@@ -11,29 +11,34 @@ import { AuthProvider } from "./components/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import { FontSizeProvider } from "./components/FontSizeContext";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <div style={{ textAlign: "center", padding: "20px" }}>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<h2>Witamy na stronie głównej teatru!</h2>} />
-            <Route path="/cennik" element={<Cennik />} />
-            <Route path="/regulamin" element={<Regulamin />} />
-            <Route path="/repertuar" element={<Repertuar />} />
-            <Route path="/spektakle" element={<Spektakle />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/seats" element={<Seats />} />
-            <Route path="/moje-rezerwacje" element={
-              <ProtectedRoute>
-                <MojeRezerwacje />
-              </ProtectedRoute>} />
-          </Routes>
-        </div>
-      </Router>
+      <FontSizeProvider>
+        <Router>
+          <div style={{ textAlign: "center", padding: "20px" }}>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cennik" element={<Cennik />} />
+              <Route path="/regulamin" element={<Regulamin />} />
+              <Route path="/repertuar" element={<Repertuar />} />
+              <Route path="/spektakle" element={<Spektakle />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/seats" element={<Seats />} />
+              <Route path="/moje-rezerwacje" element={
+                <ProtectedRoute>
+                  <MojeRezerwacje />
+                </ProtectedRoute>
+              } />
+            </Routes>
+          </div>
+        </Router>
+      </FontSizeProvider>
     </AuthProvider>
   );
 }

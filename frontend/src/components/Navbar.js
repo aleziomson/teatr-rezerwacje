@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { useAuth } from './AuthContext';
+import { FontSizeControls } from "./FontSizeControls";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -15,7 +16,6 @@ export default function Navbar() {
     <header className="theater-header">
       <div className="header-container">
         <div className="header-content">
-          {/* Logo */}
           <div className="logo">
             <Link to="/" className="logo-link">
               <span className="logo-primary">Teatro</span>
@@ -23,7 +23,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
           <nav className="desktop-nav">
             <Link to="/" className="nav-link">Strona Główna</Link>
             <Link to="/spektakle" className="nav-link">Spektakle</Link>
@@ -37,7 +36,6 @@ export default function Navbar() {
             )}
           </nav>
 
-          {/* Auth Buttons */}
           <div className="auth-buttons">
             {user ? (
               <button onClick={handleLogout} className="auth-button logout-button">
@@ -58,8 +56,10 @@ export default function Navbar() {
                   Zaloguj się / Zarejestruj się
                 </button>
               </Link>
+
             )}
           </div>
+          <FontSizeControls />
         </div>
       </div>
     </header>

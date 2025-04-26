@@ -1,0 +1,264 @@
+/* MojeRezerwacje.css */
+
+.rezerwacje-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Header section */
+.rezerwacje-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.rezerwacje-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.rezerwacje-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Loading state */
+.rezerwacje-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(229, 62, 62, 0.3);
+    border-radius: 50%;
+    border-top-color: #e53e3e;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Empty state */
+.no-rezerwacje {
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.no-rezerwacje-icon {
+    height: 60px;
+    width: 60px;
+    margin: 0 auto 1.5rem;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23999" viewBox="0 0 24 24"><path d="M22 10V6c0-1.11-.9-2-2-2H4c-1.1 0-1.99.89-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2s.9-2 2-2zm-9 7h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.7;
+}
+
+.no-rezerwacje p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.browse-button {
+    display: inline-block;
+    background-color: #e53e3e;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(229, 62, 62, 0.3);
+}
+
+.browse-button:hover {
+    background-color: #c53030;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(229, 62, 62, 0.4);
+}
+
+/* Reservation card */
+.rezerwacje-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.rezerwacja-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rezerwacja-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Card header */
+.rezerwacja-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.rezerwacja-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.rezerwacja-date {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+/* Card details */
+.rezerwacja-details {
+    padding: 1.5rem;
+}
+
+.seats-count {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.seats-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 0.75rem;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23444" viewBox="0 0 24 24"><path d="M4 18v3h3v-3h10v3h3v-6H4zm15-8h3v3h-3zM2 10h3v3H2zm15 3H7V5c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2v8z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.seats-list {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.seat-row-entry {
+    display: flex;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.seat-row-entry:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.row-label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    min-width: 80px;
+}
+
+.seat-numbers {
+    color: #555;
+}
+
+/* Card actions */
+.rezerwacja-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 1.5rem;
+    background-color: #f8f8f8;
+    border-top: 1px solid #eee;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.download-button {
+    background-color: #e53e3e;
+    color: white;
+    box-shadow: 0 2px 4px rgba(229, 62, 62, 0.3);
+}
+
+.download-button:hover {
+    background-color: #c53030;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(229, 62, 62, 0.4);
+}
+
+.download-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 0.5rem;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .rezerwacja-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .rezerwacja-date {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .rezerwacje-header h1 {
+        font-size: 2rem;
+    }
+
+    .rezerwacje-subtitle {
+        font-size: 1rem;
+    }
+
+    .seat-row-entry {
+        flex-direction: column;
+    }
+
+    .row-label {
+        margin-bottom: 0.3rem;
+    }
+}
