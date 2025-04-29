@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+//Tablica seats w MySQL
 @Entity
 @Data
 @Table(name = "seats")

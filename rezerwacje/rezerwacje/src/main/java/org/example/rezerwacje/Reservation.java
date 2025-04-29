@@ -2,7 +2,7 @@ package org.example.rezerwacje;
 
 import jakarta.persistence.*;
 import lombok.Setter;
-
+//Tabela reservations w MySQL
 @Entity
 @Table(name = "reservations")
 public class Reservation {

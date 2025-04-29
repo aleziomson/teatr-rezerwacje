@@ -30,25 +30,25 @@ public class RedisController {
     public RedisController(RedisService redisService) {
         this.redisService = redisService;
     }
-
+    // Pobieranie kodu z Redisa na podstawie ID użytkownika
     @PostMapping("/save")
     public String saveCode(@RequestParam String key, @RequestParam String code) {
         redisService.saveCode(key, code); // 600 sekund = 10 minut
         return "Kod zapisany w Redisie na 10 minut.";
     }
-
+    //Sprawdzanie kodu
     @GetMapping("/check")
     public boolean checkCode(@RequestParam String key, @RequestParam String code) {
         String storedCode = redisService.getCode(key);
         return code.equals(storedCode);
     }
-
+    //Usuwanie kodu
     @DeleteMapping("/delete")
     public String deleteCode(@RequestParam String key) {
         redisService.deleteCode(key);
         return "Kod został usunięty.";
     }
-
+    //Sprawdzanie czy klucz istnieje
     @GetMapping("/exists")
     public boolean exists(@RequestParam String key) {
         return redisService.exists(key);
