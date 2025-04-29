@@ -19,6 +19,7 @@ public class ReservationController {
     @Autowired
     private SeatRepository seatRepository;
 
+    //Tworzenie rezerwacji i zapisywanie jej do bazy danych
     @PostMapping("/reservations")
     public ResponseEntity<?> createReservation(@RequestBody Reservation reservation) {
         try {
@@ -29,12 +30,14 @@ public class ReservationController {
         }
     }
 
+    //Zwracanie rezerwacji użytkownika
     @GetMapping("/reservations/user/{userId}")
     public ResponseEntity<List<Reservation>> getReservationsByUser(@PathVariable Long userId) {
         List<Reservation> reservations = reservationRepository.findAllByUserId(userId);
         return ResponseEntity.ok(reservations);
     }
 
+    //Zwracanie rezerwacji użytkownika dla poszczególnych spektakli
     @GetMapping("/reservations/user/{userId}/details")
     public ResponseEntity<?> getDetailedReservationsByUser(@PathVariable Long userId) {
         List<Reservation> reservations = reservationRepository.findAllByUserId(userId);
@@ -51,18 +54,19 @@ public class ReservationController {
             Seat seat = seatOpt.get();
 
             String key = spektakl.getDate() + " | " + spektakl.getTitle();
-
+            //Uzupełniamy dane spektaklu
             grouped.putIfAbsent(key, new LinkedHashMap<>());
             Map<String, Object> details = grouped.get(key);
 
             details.put("date", spektakl.getDate());
             details.put("title", spektakl.getTitle());
 
+            // Dodaj informacje o miejscu do listy miejsc
             List<String> seatList = (List<String>) details.getOrDefault("seats", new ArrayList<>());
             seatList.add("Rząd " + seat.getRowNumber() + ", Miejsce " + seat.getSeatNumber());
             details.put("seats", seatList);
         }
-
+        //Zwracamy szczegóły rezerwacji pogrupowane względem data i tytuł
         return ResponseEntity.ok(grouped.values());
     }
 

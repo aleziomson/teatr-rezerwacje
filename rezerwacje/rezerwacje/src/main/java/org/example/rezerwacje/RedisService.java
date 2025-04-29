@@ -15,14 +15,15 @@ public class RedisService {
         redisTemplate.opsForValue().set(userId, code, 10, TimeUnit.MINUTES);
     }
 
+    // Pobieranie kodu z Redisa na podstawie ID użytkownika
     public String getCode(String userId) {
         return redisTemplate.opsForValue().get(userId);
     }
-
+    //Usuwanie koodu z Redisa na podstawie ID użytkownika
     public void deleteCode(String userId) {
         redisTemplate.delete(userId);
     }
-
+    //Sprawdza czy dany klucz istnieje
     public boolean exists(String key) {
         return Boolean.TRUE.equals(redisTemplate.hasKey(key));
     }

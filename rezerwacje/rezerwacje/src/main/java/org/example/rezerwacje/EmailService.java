@@ -11,6 +11,7 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
+    //Klasa obsługująca wysyłanie maili do użytkowników z messageContent
     public void sendConfirmationEmail(String toEmail, String messageContent) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(toEmail);

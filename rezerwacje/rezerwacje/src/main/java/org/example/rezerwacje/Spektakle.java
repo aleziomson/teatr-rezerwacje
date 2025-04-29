@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor //domyslny konstruktor
 @Table(name = "spektakle")
 public class Spektakle {
 
@@ -20,7 +19,7 @@ public class Spektakle {
     private String title;
     private String date;      // np. "2024-01-01"
     private String time;      // np. "18:00"
-    private String location = "Sala Teatralna";  //  "Sala Teatralna" u nas tylko będzie
+    private String location = "Sala Teatralna";
 
     public Spektakle(String title, String date, String time, String location) {
         this.title = title;

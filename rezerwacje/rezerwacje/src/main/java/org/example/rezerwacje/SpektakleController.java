@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/spektakle")
 public class SpektakleController {
@@ -13,7 +14,7 @@ public class SpektakleController {
     public SpektakleController(SpektakleService spektakleService){
         this.spektakleService=spektakleService;
     }
-
+    //zwraca wszystkie spektakle
     @GetMapping
     public List<Spektakle> getAllSpektakle(){
         return spektakleService.getAllSpectacles();

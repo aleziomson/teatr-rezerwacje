@@ -11,7 +11,7 @@ public class SpektakleService {
     public SpektakleService(SpektakleRepository repository) {
         this.repository = repository;
     }
-
+    //zapisywanie spektakli do listy spektakli
     public List<Spektakle> getAllSpectacles() {
         return repository.findAll();
     }

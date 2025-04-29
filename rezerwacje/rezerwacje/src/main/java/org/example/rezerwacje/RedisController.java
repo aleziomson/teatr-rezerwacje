@@ -61,11 +61,10 @@ public class RedisController {
         Optional<User> user = userRepository.findById(userId);
         Optional<Spektakle> spektakl = spektakleRepository.findById(spektaklId);
         List<Seat> seats = seatRepository.findAllById(seatIds);
-
+        //Jeżeli nie znaleźliśmy użytkownika lub spektaklu zwracamy brak danych
         if (user.isEmpty() || spektakl.isEmpty()) {
             return ResponseEntity.badRequest().body("Nie znaleziono danych.");
         }
-
         String code = generateRandomCode();
         String email = user.get().getEmail();
         String spektaklTitle = spektakl.get().getTitle();
@@ -76,6 +75,7 @@ public class RedisController {
                 .map(seat -> "Rząd " + seat.getRowNumber() + " Miejsce " + seat.getSeatNumber())
                 .collect(Collectors.joining(", "));
 
+        //Treść maila wysyłanego w czasie dokonywania rezerwacji
         String message = "Dziękujemy za rezerwację.\n\n" +
                 "Rezerwacja na spektakl: \"" + spektaklTitle + "\"\n" +
                 "Data: " + spektaklDate + "\n" +
@@ -83,15 +83,16 @@ public class RedisController {
                 "Aby potwierdzić rezerwację, wpisz poniższy kod na stronie internetowej:\n" +
                 code + "\n\n" +
                 "Czas na potwierdzenie: 10 minut.";
-
-
+        //zapisujemy kod do redisa
         redisService.saveCode("user:" + userId, code);
+        //wysyłamy maila na email użytkownika
         emailService.sendConfirmationEmail(email, message);
 
         return ResponseEntity.ok("Kod został wysłany.");
     }
 
 
+    //Funkcja generująca losowy kod, który będzie wykorzystany do obsługi rezerwacji
     private String generateRandomCode() {
         int length = 6;
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

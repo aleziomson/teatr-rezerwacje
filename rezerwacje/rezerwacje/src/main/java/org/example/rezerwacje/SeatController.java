@@ -22,9 +22,11 @@ public class SeatController {
         this.reservationRepository = reservationRepository;
     }
 
+    //Zwracamy miejsca z bazy danych
     @GetMapping
     public List<Map<String, Object>> getSeats(@RequestParam Long spektaklId) {
         List<Reservation> reservations = reservationRepository.findBySpektaklId(spektaklId);
+        //Zajęte miejsca to takie, które znajdują się w tablicy rezervations
         Set<Integer> takenSeatIds = reservations.stream()
                 .map(Reservation::getSeatId)
                 .collect(Collectors.toSet());

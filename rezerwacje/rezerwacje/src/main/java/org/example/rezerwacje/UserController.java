@@ -12,12 +12,12 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
+    //Rejestrowanie
     @PostMapping("/register")
     public String register(@RequestParam String email, @RequestParam String password) {
         return userService.registerUser(email, password);
     }
-
+    //Logowanie
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestParam String email, @RequestParam String password){
         return userService.loginUser(email, password);

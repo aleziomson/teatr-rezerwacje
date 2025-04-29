@@ -19,12 +19,12 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
         this.jwtUtil = jwtUtil;
     }
-
+    //Obsługa funkcji register
     public String registerUser(String email, String password) {
         if (userRepository.existsByEmail(email)) {
             return "Email już istnieje!";
         }
-
+        //Zapisywanie użytkownika do bazy danych
         User user = new User();
         user.setEmail(email);
         user.setPassword(passwordEncoder.encode(password)); //szyfrowanie
@@ -32,9 +32,11 @@ public class UserService {
         userRepository.save(user);
         return "Rejestracja udana!";
     }
-
+    //Obsługa funkcji login
     public ResponseEntity<?> loginUser(String email, String password) {
         Optional<User> userOpt = userRepository.findByEmail(email);
+        //Jeżeli user istnieje w bazie danych ustawiamy token na podstawie UserId
+        // -> umożliwi obsługę front endu dla zalogowanych użytkowników
         if (userOpt.isPresent()) {
             User user = userOpt.get();
             if (passwordEncoder.matches(password, user.getPassword())) {

@@ -11,7 +11,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    //kolumny w MySQL
     @Setter
     @Column(name = "user_id")
     private Long userId;

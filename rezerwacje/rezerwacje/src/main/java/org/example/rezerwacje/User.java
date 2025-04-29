@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity //Entity mówi że ta klasa to tabela w bazie danych
-@Data// automatyczne  tworzenie getterów i setterów
+@Data
 @NoArgsConstructor
 @Table(name = "Uzytkownicy") //określa nazwę tabeli
 public class User {

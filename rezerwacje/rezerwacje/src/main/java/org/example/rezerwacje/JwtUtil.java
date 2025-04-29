@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+//Klasa tworząca token (SECRET_KEY)
 @Component
 public class JwtUtil {
     private final String SECRET_KEY = "tajny_klucz";
