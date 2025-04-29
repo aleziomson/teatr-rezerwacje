@@ -1,0 +1,62 @@
+.font-size-controls {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.font-size-buttons {
+    display: flex;
+    margin-left: 10px;
+}
+
+.font-size-button {
+    padding: 5px 10px;
+    margin: 0 2px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.font-size-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+.font-size-button:nth-child(1) {
+    font-size: 12px;
+}
+
+.font-size-button:nth-child(2) {
+    font-size: 16px;
+}
+
+.font-size-button:nth-child(3) {
+    font-size: 20px;
+}
+
+.font-size-button:nth-child(4) {
+    font-size: 24px;
+}
+
+.font-size-slider {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 200px;
+}
+
+.small-icon {
+    font-size: 12px;
+    margin-right: 8px;
+}
+
+.large-icon {
+    font-size: 24px;
+    margin-left: 8px;
+}
+
+input[type="range"] {
+    flex-grow: 1;
+}
